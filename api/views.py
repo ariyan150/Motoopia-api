@@ -29,7 +29,7 @@ class MovieViewSet(viewsets.ModelViewSet):
 
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []
 
 
 class ReviewViewSet(viewsets.ModelViewSet):

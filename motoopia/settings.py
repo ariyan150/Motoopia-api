@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
+    'corsheaders',
+
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -49,9 +52,16 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
+    'django.middleware.common.CommonMiddleware',
+
 ]
 
 ROOT_URLCONF = 'motoopia.urls'
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
@@ -120,3 +130,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+'''
+REST_FRAMEWORK = {
+    # Authentication Scheme
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    # Permission Policies
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+'''
