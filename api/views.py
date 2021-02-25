@@ -18,18 +18,18 @@ class ListViewSet(viewsets.ModelViewSet):
 
     queryset = List.objects.all()
     serializer_class = ListSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []
 
-    def get_queryset(self):
-        user = self.request.user
-        return self.queryset.filter(user=user)
+    # def get_queryset(self):
+    #     user = self.request.user
+    #     return self.queryset.filter(user=user)
 
 
 class MovieViewSet(viewsets.ModelViewSet):
 
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = []
 
 
 class ReviewViewSet(viewsets.ModelViewSet):
