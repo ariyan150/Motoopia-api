@@ -2,7 +2,7 @@ from django.urls import path, include
 from rest_framework import routers
 from .views import *
 
-from .api import RegisterAPI, LoginAPI
+from .api import RegisterAPI, LoginAPI, IsMovie
 from knox import views as knox_views
 
 
@@ -17,5 +17,8 @@ urlpatterns = [
     path('auth', include('knox.urls')),
     path('auth/register', RegisterAPI.as_view()),
     path('auth/login', LoginAPI.as_view()),
+
+    path('ismovie/<str:imdb_id>', IsMovie),
+
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

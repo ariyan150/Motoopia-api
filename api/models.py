@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Movie(models.Model):
+    imdb_id = models.CharField(max_length=15, null=True)
     name = models.CharField(max_length=200)
     year = models.IntegerField()
     director = models.CharField(max_length=200)
